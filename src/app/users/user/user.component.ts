@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -18,6 +18,14 @@ export class UserComponent implements OnInit {
       // tslint:disable-next-line: no-string-literal
       name: this.route.snapshot.params['name']
     };
+    this.route.params.subscribe(
+      (params: Params) => {
+        // tslint:disable-next-line: no-string-literal
+        this.user.id = params['id'];
+        // tslint:disable-next-line: no-string-literal
+        this.user.name = params['name'];
+      }
+    );
   }
 
 }
