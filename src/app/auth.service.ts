@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { reject, resolve } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +15,7 @@ export class AuthService {
         }, 800);
       }
     );
+    return promise;
   }
 
   login() {
